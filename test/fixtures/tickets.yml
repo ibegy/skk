@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  operator: MyString
+  destination: MyString
+  amount: 1
+  price: 9.99
+  departure: 2019-03-26 11:50:32
+
+two:
+  operator: MyString
+  destination: MyString
+  amount: 1
+  price: 9.99
+  departure: 2019-03-26 11:50:32

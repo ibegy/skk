@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190326100224) do
+ActiveRecord::Schema.define(version: 20190326105032) do
+
+  create_table "tickets", force: :cascade do |t|
+    t.string "operator"
+    t.string "destination"
+    t.integer "amount"
+    t.decimal "price", precision: 5, scale: 2, default: "0.0"
+    t.datetime "departure"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
