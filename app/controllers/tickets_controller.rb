@@ -1,10 +1,11 @@
 class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.all.order("created_at desc")
   end
 
   # GET /tickets/1
@@ -69,6 +70,6 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(:operator, :destination, :amount, :price, :departure)
+      params.require(:ticket).permit(:operator, :destination, :amount, :price, :departure, :arrival)
     end
 end
