@@ -10,11 +10,10 @@
   </section>
 <% end %>
 
-<div class="instrument-index-grid pt4">
+<div class="ticket-index-grid pt4">
   <% @tickets.each do |ticket| %>
 
-    <div class="instrument border-light">
-
+    <div class="ticket border-light">
 
       <div class="pa3">
 
@@ -28,7 +27,9 @@
 
         <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(ticket.price) %></p>
 
+        <%= link_to 'View', ticket %>
       </div>
+
     </div>
   <% end %>
 </div>

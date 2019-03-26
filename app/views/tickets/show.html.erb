@@ -1,34 +1,26 @@
-<p id="notice"><%= notice %></p>
+<% content_for :body_class, 'bg-light' %>
 
-<p>
-  <strong>Operator:</strong>
-  <%= @ticket.operator %>
-</p>
+<section class="section ticket-show">
+  <div class="columns">
+    <div class="column is-8">
+      <h1 class="title is-2"><%= @ticket.destination %></h1>
 
-<p>
-  <strong>Destination:</strong>
-  <%= @ticket.destination %>
-</p>
+      <ul class="pv1">
+        <li class="inline-block pr3"><%= @ticket.operator %></li>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @ticket.amount %>
-</p>
+        <li class="inline-block pr3"><%= @ticket.amount %></li>
 
-<p>
-  <strong>Price:</strong>
-  <%= @ticket.price %>
-</p>
+        <li class="inline-block pr3"><%= @ticket.departure.to_formatted_s(:long) %></li>
 
-<p>
-  <strong>Departure:</strong>
-  <%= @ticket.departure %>
-</p>
-
-<p>
-  <strong>Arrival:</strong>
-  <%= @ticket.arrival %>
-</p>
-
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
+        <li class="inline-block pr3"><%= @ticket.arrival.to_formatted_s(:long) %></li>
+      </ul>
+    </div>
+    <div class="column is-3 is-offset-1">
+      <div class="bg-white pa4 border-radius-3">
+        <h4 class="title is-5 has-text-centered"><%= number_to_currency(@ticket.price) %></h4>
+        <p class="has-text-centered mb4">Sold by <%= @ticket.operator %></p>
+        <%#= button_to 'Add to cart', line_items_path(instrument_id: @ticket), class: 'button is-warning add-to-cart' %>
+      </div>
+    </div>
+  </div>
+</section>
