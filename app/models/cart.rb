@@ -6,6 +6,7 @@ class Cart < ApplicationRecord
 
     if current_item
       current_item.increment(:quantity)
+      ticket.decrement(:amount, 1)
     else
       current_item = line_items.build(ticket_id: ticket.id)
     end

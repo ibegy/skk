@@ -28,6 +28,7 @@ class LineItemsController < ApplicationController
   def create
     ticket = Ticket.find(params[:ticket_id])
     @line_item = @cart.add_ticket(ticket)
+    ticket.update_attribute(:amount, ticket.amount)
 
     respond_to do |format|
       if @line_item.save
