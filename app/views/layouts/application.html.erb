@@ -40,8 +40,8 @@
           <% if user_signed_in? %>
             <% if cart_has_items %>
               <%= link_to cart_path(current_user.cart), class:"navbar-item button is-warning" do %>
-              <span class="icons is-small">
-                <i class="fa fa-shopping-cart"></i>
+              <span class="bought-tickets">
+                Bought tickets
               </span>
               <span>
                 <%= cart_count_over_one %>

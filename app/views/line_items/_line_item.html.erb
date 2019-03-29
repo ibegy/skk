@@ -9,7 +9,7 @@
         <%= line_item.ticket.operator %>
       </div>
       <div class="content column is-9">
-        <%= line_item.ticket.departure %>
+        <%= line_item.ticket.departure.to_formatted_s(:long) %>
       </div>
       <div class="column is-3 has-text-right">
         <strong class="f4"><%= number_to_currency(line_item.total_price) %></strong>
@@ -17,6 +17,7 @@
     </div>
   </div>
 </div>
+
 
 <% if DateTime.now < (line_item.ticket.departure - (1/24.0)) %>
   <div class="has-text-right">

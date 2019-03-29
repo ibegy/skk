@@ -17,12 +17,31 @@
 @import "bulma";
 @import "mixins";
 
+.navbar-item h1 {
+  color: #FFFFFF;
+}
+
+.button.is-warning,
+.hero.is-warning,
+.navbar.is-warning {
+  background-color: #ff4a38;
+  color: #FFFFFF;
+}
+
+.hero.is-warning .title {
+  color: #FFFFFF;
+}
+
 .notification {
   border-radius: 0;
 }
 
 .notification:not(:last-child) {
   margin-bottom: 0;
+}
+
+.bought-tickets {
+  margin-right: 20px;
 }
 
 .ticket-index-grid {

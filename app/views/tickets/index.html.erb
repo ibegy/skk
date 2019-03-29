@@ -13,26 +13,28 @@
 <div class="ticket-index-grid pt4">
   <% @tickets.each do |ticket| %>
 
-    <div class="ticket border-light">
+    <% if ticket.departure > DateTime.now%>
+      <div class="ticket border-light">
 
-      <div class="pa3">
+        <div class="pa3">
 
-        <h3 class="fw7 f4 title">Destination: <%= ticket.destination %></h3>
+          <h3 class="fw7 f4 title">Destination: <%= ticket.destination %></h3>
 
-        <p class="has-text-gray fg pt1">Amount: <%= ticket.amount %></p>
+          <p class="has-text-gray fg pt1">Amount: <%= ticket.amount %></p>
 
-        <p class="has-text-gray fg pt1">Operator: <%= ticket.operator %></p>
+          <p class="has-text-gray fg pt1">Operator: <%= ticket.operator %></p>
 
-        <p class="has-text-gray fg pt1">Departure: <%= ticket.departure.to_formatted_s(:long) %></p>
+          <p class="has-text-gray fg pt1">Departure: <%= ticket.departure.to_formatted_s(:long) %></p>
 
-        <p class="has-text-gray fg pt1">Arrival: <%= ticket.arrival.to_formatted_s(:long) %></p>
+          <p class="has-text-gray fg pt1">Arrival: <%= ticket.arrival.to_formatted_s(:long) %></p>
 
-        <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(ticket.price) %></p>
+          <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(ticket.price) %></p>
 
-        <%= link_to 'View', ticket %>
+          <%= link_to 'View', ticket %>
+        </div>
+
       </div>
-
-    </div>
+    <% end %>
   <% end %>
 </div>
 
