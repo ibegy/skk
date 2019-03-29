@@ -37,15 +37,16 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="field is-grouped">
-
-          <% if cart_has_items %>
-            <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do %>
-            <span class="icons is-small">
-              <i class="fa fa-shopping-cart"></i>
-            </span>
-            <span>
-              <%= cart_count_over_one %>
-            </span>
+          <% if user_signed_in? %>
+            <% if cart_has_items %>
+              <%= link_to cart_path(current_user.cart), class:"navbar-item button is-warning" do %>
+              <span class="icons is-small">
+                <i class="fa fa-shopping-cart"></i>
+              </span>
+              <span>
+                <%= cart_count_over_one %>
+              </span>
+              <% end %>
             <% end %>
           <% end %>
 
