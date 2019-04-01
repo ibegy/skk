@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190329145634) do
+ActiveRecord::Schema.define(version: 20190401171931) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20190329145634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantity", default: 1
+    t.string "card_number"
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
     t.index ["ticket_id"], name: "index_line_items_on_ticket_id"
   end
@@ -49,7 +50,6 @@ ActiveRecord::Schema.define(version: 20190329145634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.string "card_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

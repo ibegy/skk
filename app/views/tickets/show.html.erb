@@ -19,7 +19,13 @@
       <div class="bg-white pa4 border-radius-3">
         <h4 class="title is-5 has-text-centered"><%= number_to_currency(@ticket.price) %></h4>
         <p class="has-text-centered mb4">Sold by <%= @ticket.operator %></p>
-        <%= button_to 'Buy ticket', line_items_path(ticket_id: @ticket), class: 'button is-warning add-to-cart' %>
+
+        <%= form_for("line_item", :url => line_items_path(ticket_id: @ticket),) do |f| %>
+          <h2>Enter you credit card number</h2>
+          <%= f.text_field :card_number, required: true, input_html: { class:"input" }, wrapper: false, label_html: { class:"label" } %>
+          <%= f.submit "Buy ticket" %>
+        <% end %>
+
       </div>
     </div>
   </div>

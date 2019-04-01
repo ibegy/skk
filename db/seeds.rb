@@ -10,7 +10,6 @@ user = User.new(
   id: 200,
   name: "Admin",
   email: "admin@example.com",
-  card_number: "123456789",
   password: "password",
   password_confirmation: "password"
 )

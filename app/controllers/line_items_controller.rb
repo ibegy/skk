@@ -35,6 +35,7 @@ class LineItemsController < ApplicationController
       end
     else
       @line_item = current_user.cart.add_ticket(ticket)
+      @line_item.update_attribute(:card_number, params[:line_item][:card_number])
       ticket.update_attribute(:amount, ticket.amount)
 
       respond_to do |format|

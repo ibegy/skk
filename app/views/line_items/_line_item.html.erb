@@ -5,10 +5,19 @@
   <div class="column is-9">
     <strong><%= line_item.ticket.destination %></strong>
     <div class="columns align-items-center">
-      <div class="content column is-9">
+      <div class="content column is-3">
         <%= line_item.ticket.operator %>
       </div>
-      <div class="content column is-9">
+      <div class="content column is-3">
+        Name: <%= current_user.name %>
+      </div>
+      <div class="content column is-3">
+        Email: <%= current_user.email %>
+      </div>
+      <div class="content column is-3">
+        Credit card number: <%= line_item.card_number || "No card entered" %>
+      </div>
+      <div class="content column is-3">
         <%= line_item.ticket.departure.to_formatted_s(:long) %>
       </div>
       <div class="column is-3 has-text-right">
