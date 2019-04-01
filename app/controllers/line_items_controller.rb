@@ -70,7 +70,7 @@ class LineItemsController < ApplicationController
     @line_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Line item was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Ticket was successfully canceled.' }
       format.json { head :no_content }
     end
   end
